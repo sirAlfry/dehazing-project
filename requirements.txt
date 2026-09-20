@@ -1,0 +1,22 @@
+# Requisiti — Single Image Dehazing (DCP + Guided Filter)
+# Installazione:  python -m pip install -r requirements.txt
+# Consiglio: dentro un ambiente virtuale (python -m venv .venv)
+
+# --- Pipeline classica (obiettivo primario) ---
+numpy>=1.24                 # array e algebra
+opencv-contrib-python>=4.8  # cv2 + cv2.ximgproc.guidedFilter (NB: la versione "contrib", non opencv-python)
+scikit-image>=0.22          # metriche PSNR e SSIM
+matplotlib>=3.7             # figure e grafici per la relazione
+tqdm>=4.65                  # barre di avanzamento
+
+# --- Download dei dataset (opzionale, solo per SOTS/RESIDE) ---
+# kaggle>=1.6               # decommenta se scarichi SOTS via API Kaggle
+
+# --- Parte deep learning (opzionale, per il confronto con AOD-Net) ---
+# PyTorch va installato seguendo le istruzioni ufficiali per la tua
+# versione di Python/CUDA: https://pytorch.org/get-started/locally/
+torch>=2.2
+torchvision>=0.17
+
+# Suggerimento riproducibilità: quando l'ambiente funziona, congela le
+# versioni esatte con  ->  python -m pip freeze > requirements.lock.txt
