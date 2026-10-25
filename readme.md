@@ -36,7 +36,7 @@ Configurazione di default (patch 15, ω = 0,95, t₀ = 0,1, guided filter r = 60
 
 Il DCP funziona molto bene sulla nebbia sintetica e su O-HAZE, aiuta poco sulla nebbia non omogenea (NH-HAZE) e **peggiora** le scene indoor di I-HAZE: le ampie pareti bianche hanno un canale scuro alto anche senza nebbia, quindi violano il prior. È il limite dichiarato da He et al.
 
-La discussione completa è nella relazione di progetto, [`report/Relazione_Dehazing.pdf`](report/Relazione_Dehazing.pdf). Il report con statistiche per dataset, immagini migliori e peggiori, figure qualitative e ablazioni è in [`report/risultati.md`](report/risultati.md), generato da `scripts/make_report.py`.
+Il report completo, con statistiche per dataset, immagini migliori e peggiori, figure qualitative e ablazioni, è in [`report/risultati.md`](report/risultati.md), generato da `scripts/make_report.py`.
 
 ## Formule utilizzate
 
@@ -189,9 +189,7 @@ dehazing-project/
 │   └── test_pipeline.py   # test automatici (pytest)
 ├── notebooks/             # esplorazione e figure per la relazione
 ├── results/               # output di evaluate.py (NON versionato)
-├── report/                # relazione + report generato
-│   ├── Relazione_Dehazing.pdf   # relazione di progetto (da consegnare)
-│   ├── Relazione_Dehazing.docx  # versione Word modificabile (NON versionata)
+├── report/                # report generato (la relazione non è versionata)
 │   ├── risultati.md       # report dei risultati (generato)
 │   ├── summary.csv        # una riga per esperimento (generato)
 │   └── figures/           # grafici e confronti qualitativi (generati)

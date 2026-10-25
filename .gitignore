@@ -21,5 +21,5 @@ Thumbs.db
 # paper di riferimento (copyright: non ridistribuire)
 document/
 
-# relazione: versione Word modificabile (nel repository solo il PDF)
-report/Relazione_Dehazing.docx
+# relazione di progetto (consegnata ai docenti, non pubblicata)
+report/Relazione_Dehazing.*
