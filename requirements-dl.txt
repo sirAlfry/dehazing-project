@@ -1,0 +1,5 @@
+-r requirements.txt
+# PyTorch: meglio usare il comando generato da https://pytorch.org/get-started/locally/
+# (sceglie la build CPU o CUDA giusta per la tua GPU)
+torch>=2.2
+torchvision>=0.17

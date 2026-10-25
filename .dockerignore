@@ -1,0 +1,7 @@
+data/
+results/
+document/
+.venv/
+.git/
+__pycache__/
+*.zip
