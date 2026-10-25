@@ -23,7 +23,7 @@ def estimate_atmospheric_light(
 
     mode:
       - "brightest"       : come nel paper di He -> il SINGOLO pixel più luminoso tra i candidati
-      - "max_per_channel" : massimo indipendente per canale (formula attuale del README)
+      - "max_per_channel" : massimo indipendente per canale (variante per l'ablazione)
       - "mean"            : media dei candidati (più robusta a pixel saturi/lampade)
     """
     n = max(1, int(dark.size * top_percent))

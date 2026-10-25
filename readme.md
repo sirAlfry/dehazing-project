@@ -322,7 +322,7 @@ python scripts/make_report.py --qualitative
 
 ## Docker (opzionale)
 
-L'immagine contiene solo codice e dipendenze; dataset e risultati vengono montati come volumi al momento dell'esecuzione (PowerShell):
+L'immagine contiene solo codice e dipendenze, con la variante `opencv-contrib-python-headless` di OpenCV: nel container non serve un'interfaccia grafica, quindi non servono librerie di sistema come libGL e l'immagine è più leggera. Dataset e risultati vengono montati come volumi al momento dell'esecuzione (PowerShell):
 
 ```powershell
 docker build -t dehazing .

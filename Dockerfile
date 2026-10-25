@@ -4,12 +4,14 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1
 WORKDIR /app
 
-# librerie di sistema richieste da opencv-contrib-python
-RUN apt-get update && apt-get install -y --no-install-recommends libgl1 libglib2.0-0 \
-    && rm -rf /var/lib/apt/lists/*
-
+# Nel container non serve la GUI: si installa la variante "headless" di OpenCV,
+# che non richiede librerie grafiche di sistema (libGL, GTK) ed e' piu' leggera.
+# requirements.txt resta quello per lo sviluppo in locale (con GUI).
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+RUN sed 's/^opencv-contrib-python>=/opencv-contrib-python-headless>=/' requirements.txt > requirements-docker.txt \
+    && grep -q '^opencv-contrib-python-headless' requirements-docker.txt \
+    && pip install --no-cache-dir -r requirements-docker.txt \
+    && rm requirements-docker.txt
 
 COPY src/ src/
 COPY scripts/ scripts/
