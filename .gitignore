@@ -17,3 +17,9 @@ venv/
 .DS_Store
 Thumbs.db
 ~$*
+
+# paper di riferimento (copyright: non ridistribuire)
+document/
+
+# relazione: versione Word modificabile (nel repository solo il PDF)
+report/Relazione_Dehazing.docx

@@ -310,7 +310,7 @@ def build_markdown(runs: list[Run], fig_dir: Path, qual: dict[str, list[tuple[st
     add("## Configurazione di riferimento")
     add("")
     add("| Parametro | Valore | Significato |")
-    add("|---|---|---|")
+    add("| --- | --- | --- |")
     meaning = {
         "patch": "lato della finestra Ω del canale scuro (px)",
         "omega": "frazione di nebbia rimossa (ω)",
@@ -341,7 +341,7 @@ def build_markdown(runs: list[Run], fig_dir: Path, qual: dict[str, list[tuple[st
     else:
         add("| Dataset | Nebbia | N | PSNR hazy | PSNR DCP | Δ PSNR | SSIM hazy | SSIM DCP | Δ SSIM "
             "| Migliorate (PSNR) | Tempo medio |")
-        add("|---|---|--:|--:|--:|--:|--:|--:|--:|--:|--:|")
+        add("| --- | --- | --: | --: | --: | --: | --: | --: | --: | --: | --: |")
         for r in base:
             ph, pd = best_of(r.m["psnr_hazy"], r.m["psnr"], 2)
             sh, sd = best_of(r.m["ssim_hazy"], r.m["ssim"], 3)
@@ -371,7 +371,7 @@ def build_markdown(runs: list[Run], fig_dir: Path, qual: dict[str, list[tuple[st
         add(f"{r.n} coppie, nebbia {kind}. Cartella dei risultati: `results/{r.name}/`.")
         add("")
         add("| Metrica | Media | Dev. std | Mediana | Min | Max |")
-        add("|---|--:|--:|--:|--:|--:|")
+        add("| --- | --: | --: | --: | --: | --: |")
         for key, lab, dg in [("psnr_hazy", "PSNR hazy (dB)", 2), ("psnr", "PSNR DCP (dB)", 2),
                              ("ssim_hazy", "SSIM hazy", 3), ("ssim", "SSIM DCP", 3)]:
             v = r.m[key]
@@ -383,7 +383,7 @@ def build_markdown(runs: list[Run], fig_dir: Path, qual: dict[str, list[tuple[st
         add("")
         order = np.argsort(r.d_psnr)
         add("| | Immagine | PSNR hazy | PSNR DCP | Δ PSNR | SSIM DCP |")
-        add("|---|---|--:|--:|--:|--:|")
+        add("| --- | --- | --: | --: | --: | --: |")
         picks = [("migliore", i) for i in order[::-1][:3]] + [("peggiore", i) for i in order[:3]]
         for tag, i in picks:
             add(f"| {tag} | `{r.images[i]}` | {r.m['psnr_hazy'][i]:.2f} | {r.m['psnr'][i]:.2f} "
@@ -416,7 +416,7 @@ def build_markdown(runs: list[Run], fig_dir: Path, qual: dict[str, list[tuple[st
             add(f"### {pretty(ds)}")
             add("")
             add("| Variante | N | PSNR DCP | SSIM DCP | Δ PSNR vs hazy | Tempo medio |")
-            add("|---|--:|--:|--:|--:|--:|")
+            add("| --- | --: | --: | --: | --: | --: |")
             for r in ds_runs:
                 add(f"| {r.label()} | {r.n} | {pm(r.m['psnr'], 2)} | {pm(r.m['ssim'], 3)} "
                     f"| {signed(float(r.d_psnr.mean()), 2)} | {r.m['time_s'].mean() * 1000:.0f} ms |")

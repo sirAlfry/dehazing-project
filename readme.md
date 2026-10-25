@@ -27,7 +27,7 @@ Come **valore aggiunto opzionale** è previsto il confronto con un metodo deep (
 Configurazione di default (patch 15, ω = 0,95, t₀ = 0,1, guided filter r = 60, ε = 1e−3), immagini ridotte a lato massimo 1024 px. "Hazy" è la baseline senza dehazing; valori medi sul dataset.
 
 | Dataset | Nebbia | N | PSNR hazy → DCP (dB) | SSIM hazy → DCP | Immagini migliorate |
-|---|---|--:|--:|--:|--:|
+| --- | --- | --: | --: | --: | --: |
 | SOTS indoor | sintetica | 500 | 11,97 → **19,82** | 0,693 → **0,859** | 96% |
 | SOTS outdoor | sintetica | 500 | 15,92 → **17,05** | 0,814 → **0,859** | 58% |
 | O-HAZE | reale, omogenea | 45 | 13,79 → **16,01** | 0,612 → **0,680** | 78% |
@@ -36,7 +36,7 @@ Configurazione di default (patch 15, ω = 0,95, t₀ = 0,1, guided filter r = 60
 
 Il DCP funziona molto bene sulla nebbia sintetica e su O-HAZE, aiuta poco sulla nebbia non omogenea (NH-HAZE) e **peggiora** le scene indoor di I-HAZE: le ampie pareti bianche hanno un canale scuro alto anche senza nebbia, quindi violano il prior. È il limite dichiarato da He et al.
 
-Report completo, con statistiche per dataset, immagini migliori e peggiori, figure qualitative e ablazioni: [`report/risultati.md`](report/risultati.md). Lo genera `scripts/make_report.py`.
+La discussione completa è nella relazione di progetto, [`report/Relazione_Dehazing.pdf`](report/Relazione_Dehazing.pdf). Il report con statistiche per dataset, immagini migliori e peggiori, figure qualitative e ablazioni è in [`report/risultati.md`](report/risultati.md), generato da `scripts/make_report.py`.
 
 ## Formule utilizzate
 
@@ -172,7 +172,7 @@ Per immagini reali **senza** ground truth si usano metriche no-reference (FADE, 
 dehazing-project/
 ├── data/                  # dataset (NON versionati — vedi .gitignore)
 │   ├── O-HAZE/  I-HAZE/  NH-HAZE/  SOTS-RESIDE/
-├── document/              # i paper di riferimento (PDF)
+├── document/              # paper di riferimento in PDF (NON versionati — copyright)
 ├── src/                   # la "libreria": tutta la logica
 │   ├── __init__.py        # rende src un pacchetto importabile
 │   ├── io_utils.py        # lettura/scrittura immagini + abbinamento hazy/GT dei 5 dataset
@@ -189,7 +189,9 @@ dehazing-project/
 │   └── test_pipeline.py   # test automatici (pytest)
 ├── notebooks/             # esplorazione e figure per la relazione
 ├── results/               # output di evaluate.py (NON versionato)
-├── report/                # report generato + relazione
+├── report/                # relazione + report generato
+│   ├── Relazione_Dehazing.pdf   # relazione di progetto (da consegnare)
+│   ├── Relazione_Dehazing.docx  # versione Word modificabile (NON versionata)
 │   ├── risultati.md       # report dei risultati (generato)
 │   ├── summary.csv        # una riga per esperimento (generato)
 │   └── figures/           # grafici e confronti qualitativi (generati)
@@ -270,7 +272,7 @@ In alternativa, download manuale dal sito ufficiale RESIDE: <https://sites.googl
 Non serve rinominare nulla dopo l'estrazione: `src/io_utils.py` trova da solo le sottocartelle (anche `# O-HAZY NTIRE 2018/`) e ignora maiuscole/minuscole nelle estensioni (`.jpg` / `.JPG`).
 
 | Dataset | Abbinamento hazy ↔ GT | Coppie attese |
-|---|---|--:|
+| --- | --- | --: |
 | O-HAZE | `hazy/01_outdoor_hazy.jpg` ↔ `GT/01_outdoor_GT.jpg` | 45 |
 | I-HAZE | `hazy/01_indoor_hazy.jpg` ↔ `GT/01_indoor_GT.jpg` | 30 |
 | NH-HAZE | `01_hazy.png` ↔ `01_GT.png` (stessa cartella) | 55 |
@@ -303,7 +305,7 @@ python scripts/make_report.py --qualitative
 Dataset disponibili per `--dataset`: `sots-indoor`, `sots-outdoor`, `o-haze`, `i-haze`, `nh-haze`. Opzioni utili:
 
 | Opzione | Default | A cosa serve |
-|---|---|---|
+| --- | --- | --- |
 | `--max-side N` | 0 (originale) | riduce le immagini enormi di O-HAZE / I-HAZE (fino a 4657 px) |
 | `--limit N` | 0 (tutte) | usa solo le prime N coppie, per prove veloci |
 | `--save-images` | no | salva anche le immagini ripulite |
@@ -329,9 +331,9 @@ docker build -t dehazing .
 docker run --rm -v "${PWD}/data:/app/data:ro" -v "${PWD}/results:/app/results" dehazing scripts/evaluate.py --dataset sots-indoor --limit 20
 ```
 
-## Documenti di riferimento (cartella `document/`)
+## Documenti di riferimento
 
-I PDF dei lavori su cui si basa il progetto, con un breve riassunto di cosa trattano. Nomi dei file nel formato autore-anno.
+I lavori su cui si basa il progetto, con un breve riassunto di cosa trattano. I PDF **non sono inclusi nel repository** per motivi di copyright (la cartella `document/` è esclusa via `.gitignore`): si trovano tramite le citazioni complete in fondo. I nomi dei file indicati sono quelli usati localmente, nel formato autore-anno.
 
 **`He2009_DarkChannelPrior.pdf`** — _Single Image Haze Removal Using Dark Channel Prior_ (He, Sun, Tang — CVPR 2009, Best Paper).
 Introduce il **Dark Channel Prior**, il metodo fondamentale del progetto: osserva che le immagini naturali senza foschia hanno, in quasi ogni patch, pixel molto scuri in almeno un canale; da questa statistica stima direttamente la trasmissione e recupera l'immagine pulita. Limite dichiarato: cade su cielo e superfici bianche.

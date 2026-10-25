@@ -5,7 +5,7 @@ _Generato automaticamente da `scripts/make_report.py` il 25/10/2026 a partire da
 ## Configurazione di riferimento
 
 | Parametro | Valore | Significato |
-|---|---|---|
+| --- | --- | --- |
 | `patch` | 15 | lato della finestra Ω del canale scuro (px) |
 | `omega` | 0.95 | frazione di nebbia rimossa (ω) |
 | `t0` | 0.1 | soglia minima della trasmissione |
@@ -21,7 +21,7 @@ Lato massimo delle immagini durante la valutazione: **1024 px**. Metriche calcol
 ## Riepilogo
 
 | Dataset | Nebbia | N | PSNR hazy | PSNR DCP | Δ PSNR | SSIM hazy | SSIM DCP | Δ SSIM | Migliorate (PSNR) | Tempo medio |
-|---|---|--:|--:|--:|--:|--:|--:|--:|--:|--:|
+| --- | --- | --: | --: | --: | --: | --: | --: | --: | --: | --: |
 | SOTS indoor | sintetica, omogenea | 500 | 11.97 ± 2.55 | **19.82 ± 2.64** | +7.84 | 0.693 ± 0.110 | **0.859 ± 0.045** | +0.165 | 96% | 50 ms |
 | SOTS outdoor | sintetica, omogenea | 500 | 15.92 ± 3.12 | **17.05 ± 3.52** | +1.13 | 0.814 ± 0.087 | **0.859 ± 0.056** | +0.045 | 58% | 55 ms |
 | O-HAZE | reale outdoor, omogenea | 45 | 13.79 ± 2.68 | **16.01 ± 2.36** | +2.22 | 0.612 ± 0.131 | **0.680 ± 0.094** | +0.068 | 78% | 129 ms |
@@ -43,7 +43,7 @@ Valori: media ± deviazione standard sulle immagini del dataset. "Hazy" è la ba
 500 coppie, nebbia sintetica, omogenea. Cartella dei risultati: `results/sots-indoor_p15_w0.95_t0.1_guided_brightest/`.
 
 | Metrica | Media | Dev. std | Mediana | Min | Max |
-|---|--:|--:|--:|--:|--:|
+| --- | --: | --: | --: | --: | --: |
 | PSNR hazy (dB) | 11.97 | 2.55 | 11.84 | 6.61 | 19.65 |
 | PSNR DCP (dB) | 19.82 | 2.64 | 20.04 | 11.13 | 26.29 |
 | SSIM hazy | 0.693 | 0.110 | 0.701 | 0.396 | 0.926 |
@@ -53,7 +53,7 @@ Valori: media ± deviazione standard sulle immagini del dataset. "Hazy" è la ba
 - Dati sintetici generati proprio con il modello di scattering atmosferico: è il caso favorevole per il DCP, utile come limite superiore delle prestazioni.
 
 | | Immagine | PSNR hazy | PSNR DCP | Δ PSNR | SSIM DCP |
-|---|---|--:|--:|--:|--:|
+| --- | --- | --: | --: | --: | --: |
 | migliore | `1431_8` | 8.82 | 23.42 | +14.60 | 0.842 |
 | migliore | `1431_9` | 8.39 | 22.99 | +14.60 | 0.833 |
 | migliore | `1444_9` | 7.48 | 22.06 | +14.58 | 0.775 |
@@ -72,7 +72,7 @@ Valori: media ± deviazione standard sulle immagini del dataset. "Hazy" è la ba
 500 coppie, nebbia sintetica, omogenea. Cartella dei risultati: `results/sots-outdoor_p15_w0.95_t0.1_guided_brightest/`.
 
 | Metrica | Media | Dev. std | Mediana | Min | Max |
-|---|--:|--:|--:|--:|--:|
+| --- | --: | --: | --: | --: | --: |
 | PSNR hazy (dB) | 15.92 | 3.12 | 15.80 | 8.90 | 27.21 |
 | PSNR DCP (dB) | 17.05 | 3.52 | 16.75 | 8.61 | 32.24 |
 | SSIM hazy | 0.814 | 0.087 | 0.818 | 0.571 | 0.985 |
@@ -82,7 +82,7 @@ Valori: media ± deviazione standard sulle immagini del dataset. "Hazy" è la ba
 - Dati sintetici generati proprio con il modello di scattering atmosferico: è il caso favorevole per il DCP, utile come limite superiore delle prestazioni.
 
 | | Immagine | PSNR hazy | PSNR DCP | Δ PSNR | SSIM DCP |
-|---|---|--:|--:|--:|--:|
+| --- | --- | --: | --: | --: | --: |
 | migliore | `0171_0.85_0.12` | 15.10 | 32.24 | +17.14 | 0.986 |
 | migliore | `0275_1_0.16` | 10.49 | 25.85 | +15.36 | 0.939 |
 | migliore | `1055_0.95_0.2` | 12.80 | 26.41 | +13.61 | 0.963 |
@@ -101,7 +101,7 @@ Valori: media ± deviazione standard sulle immagini del dataset. "Hazy" è la ba
 45 coppie, nebbia reale outdoor, omogenea. Cartella dei risultati: `results/o-haze_p15_w0.95_t0.1_guided_brightest/`.
 
 | Metrica | Media | Dev. std | Mediana | Min | Max |
-|---|--:|--:|--:|--:|--:|
+| --- | --: | --: | --: | --: | --: |
 | PSNR hazy (dB) | 13.79 | 2.68 | 13.61 | 9.44 | 21.58 |
 | PSNR DCP (dB) | 16.01 | 2.36 | 15.63 | 11.75 | 21.41 |
 | SSIM hazy | 0.612 | 0.131 | 0.634 | 0.330 | 0.881 |
@@ -110,7 +110,7 @@ Valori: media ± deviazione standard sulle immagini del dataset. "Hazy" è la ba
 - In media il DCP migliora il PSNR di **2.22 dB** e migliora la SSIM di **0.068**; il PSNR migliora su **78%** delle immagini.
 
 | | Immagine | PSNR hazy | PSNR DCP | Δ PSNR | SSIM DCP |
-|---|---|--:|--:|--:|--:|
+| --- | --- | --: | --: | --: | --: |
 | migliore | `06_outdoor` | 11.55 | 20.15 | +8.60 | 0.701 |
 | migliore | `05_outdoor` | 10.86 | 19.46 | +8.59 | 0.654 |
 | migliore | `18_outdoor` | 14.42 | 21.41 | +6.99 | 0.757 |
@@ -129,7 +129,7 @@ Valori: media ± deviazione standard sulle immagini del dataset. "Hazy" è la ba
 30 coppie, nebbia reale indoor, omogenea. Cartella dei risultati: `results/i-haze_p15_w0.95_t0.1_guided_brightest/`.
 
 | Metrica | Media | Dev. std | Mediana | Min | Max |
-|---|--:|--:|--:|--:|--:|
+| --- | --: | --: | --: | --: | --: |
 | PSNR hazy (dB) | 14.31 | 2.86 | 15.01 | 8.68 | 20.68 |
 | PSNR DCP (dB) | 12.35 | 1.71 | 12.07 | 9.17 | 16.87 |
 | SSIM hazy | 0.702 | 0.110 | 0.721 | 0.497 | 0.885 |
@@ -140,7 +140,7 @@ Valori: media ± deviazione standard sulle immagini del dataset. "Hazy" è la ba
 - Scene indoor: luce artificiale e finestre sono spesso i punti più luminosi e la nebbia è leggera, quindi il margine di miglioramento è piccolo e l'errore del prior pesa di più.
 
 | | Immagine | PSNR hazy | PSNR DCP | Δ PSNR | SSIM DCP |
-|---|---|--:|--:|--:|--:|
+| --- | --- | --: | --: | --: | --: |
 | migliore | `18_indoor` | 8.68 | 16.24 | +7.56 | 0.691 |
 | migliore | `11_indoor` | 10.38 | 16.87 | +6.49 | 0.764 |
 | migliore | `04_indoor` | 9.11 | 14.41 | +5.30 | 0.611 |
@@ -159,7 +159,7 @@ Valori: media ± deviazione standard sulle immagini del dataset. "Hazy" è la ba
 55 coppie, nebbia reale, NON omogenea. Cartella dei risultati: `results/nh-haze_p15_w0.95_t0.1_guided_brightest/`.
 
 | Metrica | Media | Dev. std | Mediana | Min | Max |
-|---|--:|--:|--:|--:|--:|
+| --- | --: | --: | --: | --: | --: |
 | PSNR hazy (dB) | 11.52 | 1.84 | 11.54 | 7.05 | 16.05 |
 | PSNR DCP (dB) | 12.29 | 1.92 | 12.37 | 8.09 | 16.59 |
 | SSIM hazy | 0.448 | 0.091 | 0.439 | 0.243 | 0.678 |
@@ -169,7 +169,7 @@ Valori: media ± deviazione standard sulle immagini del dataset. "Hazy" è la ba
 - Nebbia non omogenea: il modello assume una sola airlight A e una nebbia che dipende solo dalla profondità, quindi un miglioramento limitato è il comportamento atteso.
 
 | | Immagine | PSNR hazy | PSNR DCP | Δ PSNR | SSIM DCP |
-|---|---|--:|--:|--:|--:|
+| --- | --- | --: | --: | --: | --: |
 | migliore | `47` | 7.05 | 12.90 | +5.85 | 0.443 |
 | migliore | `51` | 10.04 | 15.54 | +5.49 | 0.500 |
 | migliore | `01` | 11.31 | 16.35 | +5.04 | 0.635 |
