@@ -361,3 +361,8 @@ Introduce la metrica **SSIM**: invece dell'errore pixel per pixel (MSE/PSNR), co
 - Z. Wang, A. C. Bovik, H. R. Sheikh, E. P. Simoncelli — _Image Quality Assessment: From Error Visibility to Structural Similarity (SSIM)_, IEEE TIP 2004.
 
 _Dataset e paper a solo uso accademico/di ricerca: citare le fonti nella relazione e non ridistribuirli._
+
+## Licenza
+
+Il codice di questo progetto è distribuito con licenza **MIT**: vedi il file [`LICENSE`](LICENSE).
+La licenza copre solo il codice sorgente, non i dataset né i paper citati sopra, che restano soggetti alle rispettive licenze.
